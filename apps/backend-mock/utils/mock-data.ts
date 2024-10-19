@@ -175,12 +175,12 @@ export const MOCK_MENUS = [
     menus: [...dashboardMenus, ...createDemosMenus('super')],
     username: 'vben',
   },
-  {
-    menus: [...dashboardMenus, ...createDemosMenus('admin')],
-    username: 'admin',
-  },
-  {
-    menus: [...dashboardMenus, ...createDemosMenus('user')],
-    username: 'jack',
-  },
+  // {
+  //   menus: [...dashboardMenus, ...createDemosMenus('admin')],
+  //   username: 'admin',
+  // },
+  // {
+  //   menus: [...dashboardMenus, ...createDemosMenus('user')],
+  //   username: 'jack',
+  // },
 ];
