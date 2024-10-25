@@ -4,9 +4,23 @@ import { onMounted, ref } from 'vue';
 import {
 EchartsUI, useEcharts, type EchartsUIType
 } from '@vben/plugins/echarts';
-
+const props = defineProps({
+  count: {
+    type: Number,
+    default: 0
+  },
+  name: {
+    type: String,
+    default: ''
+  },
+  color:{
+    type: Array,
+    default: []
+  }
+});
 const chartRef = ref<EchartsUIType>();
 const { renderEcharts } = useEcharts(chartRef);
+console.log(props.color);
 
 onMounted(() => {
   renderEcharts({
@@ -16,13 +30,11 @@ onMounted(() => {
       show: false
     },
     title: {
-      text: '70%',
-      subtext: '入境确诊占比',
+      text: props.count,
       left: 'center',
-      top: '40%',
+      top: '38%',
       textStyle: {
         fontSize: 12,
-        color: '#2BCAFF',
         align: 'center'
       },
     },
@@ -32,7 +44,7 @@ onMounted(() => {
           return Math.random() * 100;
         },
         avoidLabelOverlap: false,
-        color: ['#19FCDE', '#343A3C'],
+        color: props.color,
         data: [
           { name: '入境确诊占比', value: 7 },
           { name: '未入境确诊占比', value: 3 },
@@ -68,5 +80,5 @@ onMounted(() => {
 </script>
 
 <template>
-  <EchartsUI ref="chartRef" style="width: 200px; height: 200px;" />
+  <EchartsUI ref="chartRef" style="width: 80px; height: 80px;" />
 </template>

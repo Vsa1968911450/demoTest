@@ -2,9 +2,7 @@
 import { onMounted, ref } from 'vue';
 
 import {
-  EchartsUI,
-  type EchartsUIType,
-  useEcharts,
+EchartsUI, useEcharts, type EchartsUIType
 } from '@vben/plugins/echarts';
 
 const chartRef = ref<EchartsUIType>();
@@ -17,32 +15,43 @@ onMounted(() => {
       containLabel: true,
       left: '1%',
       right: '1%',
-      top: '2 %',
+      top: '2%',
     },
     series: [
       {
         areaStyle: {},
-        data: [
-          111, 2000, 6000, 16_000, 33_333, 55_555, 64_000, 33_333, 18_000,
-          36_000, 70_000, 42_444, 23_222, 13_000, 8000, 4000, 1200, 333, 222,
-          111,
-        ],
+        data: [31, 22, 32, 44, 25, 46, 37, 38, 29, 40, 51],
         itemStyle: {
-          color: '#5ab1ef',
+          color: '#0D484A',
         },
         smooth: true,
         type: 'line',
       },
       {
         areaStyle: {},
-        data: [
-          33, 66, 88, 333, 3333, 6200, 20_000, 3000, 1200, 13_000, 22_000,
-          11_000, 2221, 1201, 390, 198, 60, 30, 22, 11,
-        ],
+        data: [21, 22, 31, 24, 25, 36, 27, 8, 29, 10, 31],
         itemStyle: {
-          color: '#019680',
+          color: '#0E2D46',
         },
         smooth: true,
+        type: 'line',
+      },
+      {
+        areaStyle: {},
+        data: [12, 12, 21, 14, 22, 6, 27, 8, 29, 10, 31],
+        itemStyle: {
+          color: '#212E35',
+        },
+        smooth: true,
+        type: 'line',
+      },
+      {
+        areaStyle: {},
+        data: [3, 3, 4, 11, 2, 6, 10, 8, 29, 10, 11],
+        itemStyle: {
+          color: '#8D9094',
+        },
+        smooth: false,
         type: 'line',
       },
     ],
@@ -55,20 +64,12 @@ onMounted(() => {
       },
       trigger: 'axis',
     },
-    // xAxis: {
-    //   axisTick: {
-    //     show: false,
-    //   },
-    //   boundaryGap: false,
-    //   data: Array.from({ length: 18 }).map((_item, index) => `${index + 6}:00`),
-    //   type: 'category',
-    // },
     xAxis: {
       axisTick: {
         show: false,
       },
       boundaryGap: false,
-      data: Array.from({ length: 18 }).map((_item, index) => `${index + 6}:00`),
+      data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月'],
       splitLine: {
         lineStyle: {
           type: 'solid',
@@ -83,11 +84,9 @@ onMounted(() => {
         axisTick: {
           show: false,
         },
-        max: 80_000,
         splitArea: {
           show: true,
         },
-        splitNumber: 4,
         type: 'value',
       },
     ],
@@ -96,5 +95,5 @@ onMounted(() => {
 </script>
 
 <template>
-  <EchartsUI ref="chartRef" />
+  <EchartsUI ref="chartRef" style="width: 480px; height: 200px;" />
 </template>
