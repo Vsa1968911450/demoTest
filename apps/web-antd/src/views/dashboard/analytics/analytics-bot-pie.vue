@@ -46,8 +46,8 @@ onMounted(() => {
         avoidLabelOverlap: false,
         color: props.color,
         data: [
-          { name: '入境确诊占比', value: 7 },
-          { name: '未入境确诊占比', value: 3 },
+          { name: '入境确诊占比', value: props.count },
+          { name: '未入境确诊占比', value: 10 },
         ],
         emphasis: {
           label: {
